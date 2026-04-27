@@ -1,0 +1,13 @@
+[build]
+  # The command to run to build your Vite React app
+  command = "npm run build"
+  
+  # The directory containing the built assets (Vite defaults to 'dist')
+  publish = "dist"
+
+# This redirect ensures that React Router handles all page routes (like /patients)
+# instead of Netlify trying to find a matching HTML file and throwing a 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
