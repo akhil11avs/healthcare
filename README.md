@@ -1,4 +1,4 @@
-# Healthcare - B2B Healthcare SaaS Platform
+# Healthcare Enterprise - B2B Healthcare SaaS Platform
 
 A production-grade B2B Healthcare SaaS UI application demonstrating frontend development skills, modern architecture, and real-world scenario handling. Built as part of the frontend engineering assignment.
 
@@ -29,7 +29,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 1. **Clone the repository**
    ```bash
    git clone https://github.com/akhil11avs/healthcare.git
-   cd healthcare
+   cd healthcare-enterprise
    ```
 
 2. **Install dependencies**
@@ -63,7 +63,7 @@ To test the application, use the following credentials (or create a new user via
 ## 📁 Project Structure
 
 ```
-healthcare/
+healthcare-enterprise/
 ├── public/                 # Static assets and Service Worker
 ├── src/
 │   ├── app/                # Redux store and router configuration
