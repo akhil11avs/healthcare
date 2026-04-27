@@ -1,0 +1,133 @@
+.dashboard { }
+
+/* KPI Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+}
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: all var(--transition-normal);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--gradient-blue-glow);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+.kpi-card:hover { border-color: var(--border-default); box-shadow: var(--shadow-md); }
+.kpi-card:hover::before { opacity: 1; }
+
+.kpi-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4); }
+.kpi-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+}
+.kpi-change {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 0.72rem; font-weight: 600; padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+.kpi-change--pos { color: var(--color-emerald-400); background: rgba(16,185,129,0.1); }
+.kpi-change--neg { color: var(--color-rose-400); background: rgba(244,63,94,0.1); }
+
+.kpi-value { font-size: 2rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.03em; line-height: 1; }
+.kpi-label { font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-top: var(--space-1); }
+.kpi-change-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+.kpi-sparkline { margin-top: var(--space-3); margin-left: -8px; margin-right: -8px; }
+
+/* Dashboard layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-6);
+}
+
+/* Section headers */
+.section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+.section-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+.section-link {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 0.8rem; color: var(--color-primary-400);
+  background: none; border: none; cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.section-link:hover { color: var(--color-primary-300); }
+.section-count { font-size: 0.78rem; color: var(--text-muted); }
+
+/* Recent patients */
+.recent-patients-list {
+  display: flex; flex-direction: column; gap: 2px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.patient-row {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: 12px var(--space-5);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.patient-row:last-child { border-bottom: none; }
+.patient-row:hover { background: var(--bg-card-hover); }
+.patient-row-info { flex: 1; min-width: 0; }
+.patient-row-name { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+.patient-row-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 1px; }
+.patient-row-condition { font-size: 0.8rem; color: var(--text-secondary); width: 160px; }
+.patient-row-arrow { color: var(--text-muted); flex-shrink: 0; }
+
+/* Appointments */
+.appointments-list {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  max-height: 320px; overflow-y: auto;
+}
+.apt-card {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+.apt-card:hover { border-color: var(--border-default); }
+.apt-time { font-size: 0.78rem; font-weight: 700; color: var(--color-primary-400); white-space: nowrap; width: 70px; }
+.apt-info { flex: 1; min-width: 0; }
+.apt-patient { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
+.apt-type { font-size: 0.72rem; color: var(--text-muted); margin-top: 1px; }
+
+/* Dept stats */
+.dept-stats { display: flex; flex-direction: column; gap: var(--space-3); }
+.dept-stat-row { display: flex; flex-direction: column; gap: var(--space-1); }
+.dept-stat-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-secondary); font-weight: 500; }
+.dept-stat-bar {
+  height: 6px; background: var(--bg-elevated);
+  border-radius: var(--radius-full); overflow: hidden;
+}
+.dept-stat-fill {
+  height: 100%; border-radius: var(--radius-full);
+  transition: width 0.8s ease;
+}
+
+@media (max-width: 1280px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+}
